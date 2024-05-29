@@ -1,0 +1,79 @@
+
+<div style="background-image: url(/img/banner---polla3.jpg); background-size: cover; background-repeat: no-repeat; opacity: 0.8;">
+<div class="row" style="opacity: 0.8;">
+
+  <div class="col-md-6 mx-auto">
+            <br><br>
+    <div class="card text-white" style="background-color: #154e9c">
+
+      <div class="card-header pt-5">
+        <h4 class="text-center">
+          Registro del Usuario
+        </h4>
+
+        <form action="/auth/signup" method="POST">
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade show active" id="home" role="tabpanel">
+      <div class="card-body" style="font-size: 2rem;">
+          <div class="mb-3">
+            <label for="email">Email:</label> 
+            <input  type="email"  class="form-control bg-ligth"  name="email"  placeholder="Email"  value="{{email}}"required />
+          </div>
+          <div class="mb-3">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control bg-ligth " name="name" placeholder="Nombre" value="{{name}}"required/>
+          </div>
+          <div class="mb-3">
+            <label for="apellido">Apellido:</label>
+            <input type="text" class="form-control bg-ligth" name="apellido" placeholder="Primer Apellido" value="{{apellido}}"required/>
+                              <input class="visually-hidden" type="number" name="puntos" value=0 readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="cedula ">Cedula:</label>
+            <input type="text" class="form-control bg-ligth" name="cedula" placeholder="cedula" value="{{cedula}}"required/>
+          </div>
+
+          <div class="mb-3">
+            <label for="celular ">Celular:</label>
+            <input type="text" class="form-control bg-ligth" name="celular" placeholder="celular" value="{{celular}}"required/>
+          </div>
+                    <div class="mb-3">
+            <label for="cedula ">Drogueria:</label>
+            <input type="text" class="form-control bg-ligth" name="drogueria" placeholder="drogueria" value="{{drogeria}}"required/>
+          </div>
+
+          <div class="mb-3">
+            <label for="Ciudad ">Ciudad:</label>
+            <input type="text" class="form-control bg-ligth" name="ciudad" placeholder="ciudad" value="{{ciudad}}"required/>
+          </div>
+
+          <div class="mb-3">
+            <label for="cedula ">Codigo:</label>
+            <input type="text" class="form-control bg-ligth" name="codigo" placeholder="codigo suministrado por Ecar" value="{{codigo}}" required/>
+          </div>
+
+
+      </div>
+  </div>
+</div>
+              <div class="form-termsAndConditions termsAndConditions" style="color: white; font-size: 2rem">
+                <input type="checkbox" id="termsAndConditions" name="termsAndConditions" onChange="comprobar(this);">
+                <label for="termsAndConditions">Acepto los </label>
+                <a href="/Estudios/AUTORIZACIÓN PARA EL TRATAMIENTO DE DATOS PERSONALES.pdf" target="_blank">Términos y Condiciones</a>
+                <p>de la política de protección de datos.</p>
+                <p class="mensajeError"></p>
+              </div>
+
+          <button class="btn btn-success btn-block" style="background-color: blue; font-size: 2rem" >
+            Registro
+          </button>
+        </form>
+        </form>
+      </div>
+
+
+    </div>
+<br><br>
+  </div>
+</div>

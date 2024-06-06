@@ -13,7 +13,6 @@
     <div  id="navbarNav">
 
       <ul class="navbar-nav ms-auto">
-        {{#if user}}
 
             {{#if tp}}
             <li class="nav-item">
@@ -42,8 +41,8 @@
              <li class="nav-item">
               <a class="nav-link" style="color:black ; font-size: 1.5vh" href="/auth/logout">Salir</a>
             </li>
-
-            {{else}}
+           {{/if}}
+            {{#if ad}}
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" style="color:black" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"> PROCESOS</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -56,7 +55,7 @@
             </ul>
           </li>
           {{/if}}
-        {{else}}
+                  {{#if ini}}
             <li class="nav-item">
               <a class="nav-link" style="color:black; font-size: 1.5vh"  href="/auth/grupos">Grupos</a>
             </li>
@@ -70,13 +69,7 @@
               <a class="nav-link" style="color:#10447f; font-size: 1.5vh;"  href="/auth/signin">Ingresar</a>
               <a class="nav-link" style="color:#10447f; font-size: 1.5vh"  href="/auth/signup">Registrarse</a>
             </ul>
-
-
-
-
-
-
-          
+         
         {{/if}}
       </ul>
     </div>

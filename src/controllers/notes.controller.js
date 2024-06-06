@@ -12,12 +12,14 @@ export const renderNotesqf = async (req, res) => {
   const nombre = req.user.name;
   const usua = req._id
   const tp = true;
+  const ad = false;
+  const ini = false;
   const usuario12 = await Usuario.findOne({email: req.user.email, codigo2:"S"});
   console.log("usuario",usuario12);
   if (!usuario12){
-  res.render("notes/pedircodigo1", { nombre, tp});
+  res.render("notes/pedircodigo1", { nombre, tp, ad, ini});
   }
-  else {  res.render("notes/all-notes-qf", { nombre, tp});}
+  else {  res.render("notes/all-notes-qf", { nombre, tp, ad, ini});}
 
 };
 
@@ -26,6 +28,8 @@ export const renderNotescodigo = async (req, res) => {
   const nombre = req.user.name;
   const usua = req._id
   const tp = true;
+  const ad = false;
+  const ini = false;
   console.log(req.body.CODIGO);
 
   const codFound = await Codigo.findOne({cod:req.body.CODIGO,usado:"S"})
@@ -47,7 +51,7 @@ export const renderNotescodigo = async (req, res) => {
   console.log(req.user.email);
   await Usuario.findOneAndUpdate({email: req.user.email}, {codigo2:"S"})
 
-  res.render("notes/all-notes-qf", { nombre, tp});
+  res.render("notes/all-notes-qf", { nombre, tp, ad, ini});
 
 
 };
@@ -56,20 +60,23 @@ export const renderNotespremios = async (req, res) => {
   const nombre = req.user.name;
   const usua = req._id
   const tp = true;
-
-  res.render("notes/notes-premios", { nombre, tp});
+  const ad = false;
+  const ini = false;
+  res.render("notes/notes-premios", { nombre, tp, ad, ini});
 };
 
 export const renderNotessf = async (req, res) => {
   const nombre = req.user.name;
   const usua = req._id
   const tp = true;
+  const ad = false;
+  const ini = false;
   const usuario13 = await Usuario.findOne({email: req.user.email, codigo3:"S"});
   console.log("usuario",usuario13);
   if (!usuario13){
-  res.render("notes/pedircodigo2", { nombre, tp});
+  res.render("notes/pedircodigo2", { nombre, tp, ad, ini});
   }
-  else {  res.render("notes/all-notes-sf", { nombre, tp});}
+  else {  res.render("notes/all-notes-sf", { nombre, tp, ad, ini});}
 };
 
 export const renderNotescodigo1 = async (req, res) => {
@@ -77,6 +84,8 @@ export const renderNotescodigo1 = async (req, res) => {
   const nombre = req.user.name;
   const usua = req._id
   const tp = true;
+  const ad = false;
+  const ini = false;
   console.log(req.body.CODIGO1);
 
   const codFound = await Codigo.findOne({cod:req.body.CODIGO1,usado:"S"})
@@ -98,7 +107,7 @@ export const renderNotescodigo1 = async (req, res) => {
   console.log(req.user.email);
   await Usuario.findOneAndUpdate({email: req.user.email}, {codigo3:"S"})
 
-  res.render("notes/all-notes-sf", { nombre, tp});
+  res.render("notes/all-notes-sf", { nombre, tp, ad, ini});
 
 
 };
@@ -108,12 +117,14 @@ export const renderNotesf = async (req, res) => {
   const nombre = req.user.name;
   const usua = req._id
   const tp = true;
+  const ad = false;
+  const ini = false;
   const usuario14 = await Usuario.findOne({email: req.user.email, codigo4:"4"});
   console.log("usuario",usuario14);
   if (!usuario14){
-  res.render("notes/pedircodigo3", { nombre, tp});
+  res.render("notes/pedircodigo3", { nombre, tp, ad, ini});
   }
-  else {  res.render("notes/all-notes-f", { nombre, tp});}
+  else {  res.render("notes/all-notes-f", { nombre, tp, ad, ini});}
 };
 
 export const renderNotescodigo2 = async (req, res) => {
@@ -121,6 +132,8 @@ export const renderNotescodigo2 = async (req, res) => {
   const nombre = req.user.name;
   const usua = req._id
   const tp = true;
+  const ad = false;
+  const ini = false;
   console.log(req.body.CODIGO2);
 
   const codFound = await Codigo.findOne({cod:req.body.CODIGO2,usado:"S"})
@@ -142,7 +155,7 @@ export const renderNotescodigo2 = async (req, res) => {
   console.log(req.user.email);
   await Usuario.findOneAndUpdate({email: req.user.email}, {codigo4:"S"})
 
-  res.render("notes/all-notes-f", { nombre, tp});
+  res.render("notes/all-notes-f", { nombre, tp, ad, ini});
 
 
 };
@@ -164,16 +177,18 @@ export const renderNotes = async (req, res) => {
       const nombre = req.user.name;
       const usua = req._id
       const tp = true;
+      const ad = false;
+      const ini = false;
       const notes1 = await Note.findOne({ email: email });
     //  console.log(notes1.email);
       if (!notes1) { 
-        const newjuego = new Note({ email: req.user.email, status_partido: "A", numero:1, grupo: "A",fecha: '20/06/2024',mapa1: "/img/Argentina.png", mapa2: "/img/Canada.png", equipo1: "ARGENTINA",equipo2: "CANADA",RESULTADO1: 0,RESULTADO2: 0});
+        const newjuego = new Note({ email: req.user.email, status_partido: "A", numero:1, grupo: "A",fecha: '20/06/2024',mapa1: "/img/Argentina.png", mapa2: "/img/Canada.png", equipo1: "ARGENTINA",equipo2: "CANADA",resultado1: 0,resultado2: 0, puntos:0});
         const juego = await newjuego.save();
         const user = await Note.findOne({email: email, grupo: "A",fecha: '20/06/2024',equipo1: "ARGENTINA",equipo2: "CANADA" }).lean();
         const us = user._id
         await Note.findOneAndUpdate({email:req.user.email, grupo: "A",fecha: '20/06/2024',equipo1: "ARGENTINA",equipo2: "CANADA" }, { usuario: us }) ;
 
-        const newjuego1 = new Note({email: req.user.email, status_partido: "A", numero:2,grupo: "A",fecha: '21/06/2024',mapa1: "/img/Peru.png", mapa2: "/img/Chile.png", equipo1: "PERU",equipo2: "CHILE",RESULTADO1: 0,RESULTADO2: 0});
+        const newjuego1 = new Note({email: req.user.email, status_partido: "A", numero:2,grupo: "A",fecha: '21/06/2024',mapa1: "/img/Peru.png", mapa2: "/img/Chile.png", equipo1: "PERU",equipo2: "CHILE",resultado1: 0,resultado2: 0, puntos:0});
         const juego1 = await newjuego1.save();
         const user1 = await Note.findOne({email: email, grupo: "A",fecha: '21/06/2024',equipo1: "PERU",equipo2: "CHILE" }).lean();
         const us1 = user1._id
@@ -318,7 +333,7 @@ export const renderNotes = async (req, res) => {
         .lean();
         const puntos = 0;
          console.log("aqui si estoy")
-         res.render("notes/all-notes-pronos", { notes, nombre, puntos, tp} );
+         res.render("notes/all-notes-pronos", { notes, nombre, puntos, tp, ad, ini} );
       
       
       }
@@ -333,20 +348,21 @@ export const renderNotes = async (req, res) => {
       const notes = await Note.find({email: email})
         .sort({ date:"desc" })
         .lean();
-         res.render("notes/all-notes-pronos", { notes, nombre, puntos, posicion, tp} );
+         res.render("notes/all-notes-pronos", { notes, nombre, puntos, posicion, tp, ad, ini} );
     }      
 } 
 
 else
 {
   const tp = false;
-  const fm = false;
-//  const notes = await Note.find()
+  const ad = true;
+  const ini = false;
+  //  const notes = await Note.find()
   const notes = await resultados.find()
   .sort({ date: "desc" })
   .lean();
 
-res.render("notes/all-notes", { notes , tp, fm });
+res.render("notes/all-notes", { notes , tp, ad, ini });
 };
 };
 
@@ -355,23 +371,24 @@ export const renderEditForm = async (req, res) => {
   const jue = req.user.status_partido;
   console.log(tip);
   if (tip == "Jugador"){  const tp = true;
+    const ad = false;
+    const ini = false;
 
-
-    const fm = false;
     const note = await Note.findById(req.params.id).lean();
     if(note.status_partido == "C") {
       req.flash("success_msg", "Juego Cerrado No se Puede Modificar");
         res.redirect("/notes");
      } 
  
-    res.render("notes/edit-note", { note, tp, fm });}
+    res.render("notes/edit-note", { note, tp, ad, ini });}
  
     else
   {
   const tp = false;
-  const fm = true;
+  const ad = true;
+  const ini = false;
   const note = await resultados.findById(req.params.id).lean();
-  res.render("notes/edit-note", { note, tp, fm });
+  res.render("notes/edit-note", { note, tp, ad, ini });
 }
 
 
@@ -379,10 +396,11 @@ export const renderEditForm = async (req, res) => {
 
 export const renderVisualizarnotas = async (req, res) => {
   const tp = false;
-  const fm = true;
+  const ad = true;
+  const ini = false;
   const note = await resultados.findById(req.params.id).lean();
 
-  res.render("notes/visualizar-notas", { note, tp, fm }); 
+  res.render("notes/visualizar-notas", { note, tp, ad, ini }); 
 };
 
 

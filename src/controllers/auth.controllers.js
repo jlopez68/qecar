@@ -4,7 +4,9 @@ import Codigo from "../models/codigo.js";
 
 import passport from "passport";
 
-export const renderSignUpForm = (req, res) => res.render("auth/signup");
+export const renderSignUpForm = (req, res) =>   { 
+  const ini = true;
+res.render("auth/signup", {ini})};
 
 export const signup = async (req, res) => {
 

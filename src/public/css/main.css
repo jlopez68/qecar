@@ -2,6 +2,11 @@ body {
   font-family: 'Poppins';font-size: 22px;
 }
 
+.navbar .navbar-brand img {
+  width: 35%;
+}
+
+
 .logo {
   width: 20%;
 }

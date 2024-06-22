@@ -508,7 +508,7 @@ export const updateNote = async (req, res) => {
 
         } 
      }
-     console.log("posicion");
+ /*    console.log("posicion");
      User.find({tipo_usuario:"Jugador"},{_id:0,email:1}).sort({ puntos: "desc" }).lean().exec(posicion);
      
      async function  posicion (err, _id) {
@@ -518,7 +518,7 @@ export const updateNote = async (req, res) => {
         console.log(err);
       }
       const ciclo = _id.length;
-    //  console.log("ciclo",ciclo);
+      console.log("ciclo",ciclo);
     //  console.log(_id[0]);
       for (let step = 0; step < ciclo; step++) {
         // Runs 5 times, with values of step 0 through 4.
@@ -527,15 +527,16 @@ export const updateNote = async (req, res) => {
         var ver1 = ver.slice(10,-2);
         
     // console.log(ver);
-   //  console.log(ver1);
+     console.log(ver1);
      const notes100 = await User.findOne( {email:ver1}).lean();
-       const pos = step+1;   
+       const pos = step+1;
+       console.log("pos",pos);   
        const doc2 = await Usuario.updateOne({email: notes100.email},  {posicion:pos});
        
        
        
       }
-     }
+     }*/
 
 };
   req.flash("success_msg", "Resultado Grabado Satisfactoriamente");
@@ -552,7 +553,7 @@ async function  posicion1 (err, _id) {
    console.log(err);
  }
  const ciclo = _id.length;
- console.log("ciclo",ciclo);
+ console.log("ciclo2",ciclo);
   console.log(_id[0]);
  for (let step = 0; step < ciclo; step++) {
    // Runs 5 times, with values of step 0 through 4.
@@ -564,6 +565,9 @@ console.log(ver);
 console.log(ver1);
 const notes100 = await User.findOne( {email:ver1}).lean();
   const pos = step+1;   
+  console.log("pos1",pos);
+  console.log("email",notes100.email);
+     
   const doc2 = await Usuario.updateOne({email: notes100.email},  {posicion:pos});
   if(err) {
     console.log("error");

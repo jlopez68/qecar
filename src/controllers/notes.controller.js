@@ -432,7 +432,7 @@ export const updateNote = async (req, res) => {
  //   console.log(gru,fec,equi1,equi2,resu1,resu2);
     await Note.updateMany({grupo:gru, fecha:fec, equipo1:equi1, equipo2:equi2}, { resultado1: resu1, resultado2: resu2, puntos:0  });
 //
-     Note.find({grupo:gru, fecha:fec, equipo1:equi1, equipo2:equi2,jugado:"N", pronostico1 : {$ne:null}, pronostico2 : {$ne:null}},{_id:0,usuario:1}).lean().exec(sumarpuntos);
+     Note.find({grupo:gru, fecha:fec, equipo1:equi1, equipo2:equi2,status_partido:"C", pronostico1 : {$ne:null}, pronostico2 : {$ne:null}},{_id:0,usuario:1}).lean().exec(sumarpuntos);
      async function  sumarpuntos (err, _id) {
 
       if(err) {

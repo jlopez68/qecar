@@ -10,6 +10,7 @@ import {
   renderNotescodigo2,
   renderNotespremios,
   renderEditForm,
+  calcularposicion,
   updateNote,
   deleteNote,
   imprimirNote,
@@ -27,6 +28,7 @@ const router = Router();
 
 // Get All Notes
 router.get("/notes", isAuthenticated, renderNotes);
+router.get("/notesb", isAuthenticated, calcularposicion);
 router.post("/pedircodigo", isAuthenticated, renderNotescodigo);
 router.post("/pedircodigo1", isAuthenticated, renderNotescodigo1);
 router.post("/pedircodigo2", isAuthenticated, renderNotescodigo2);
